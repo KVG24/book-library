@@ -13,7 +13,6 @@ addBookBtn.addEventListener('click', () => {
     clearInput();
     popup.style.display = 'block';
     addBookBtn.style.display = 'none';
-    clearInput();
 });
 
 cancelBtn.addEventListener('click', () => {
@@ -76,55 +75,58 @@ function addBookToPage(book) {
     div.setAttribute('data-index', indexOfBook);
     
     if (book.title) {
+    
         title.textContent = book.title;
-    } else {
-        title.textContent = 'No title'
-    }
 
-    if (book.author) {
-        author.textContent = book.author;
-    } else {
-        author.textContent = 'Unknown author'
-    }
-
-    if (book.pages) {
-        pages.textContent = book.pages + ' pages';
-    } else {
-        pages.textContent = 'No pages?';
-    }
-
-    if (book.read) {
-        toggleBtn.textContent = 'Read';
-        toggleBtn.style.backgroundColor = 'rgb(196, 243, 196)';
-    } else {
-        toggleBtn.textContent = 'Not read';
-        toggleBtn.style.backgroundColor = 'rgb(248, 178, 178)';
-    }
-
-    div.appendChild(title);
-    div.appendChild(author);
-    div.appendChild(pages);
-    buttonDiv.appendChild(toggleBtn);
-    buttonDiv.appendChild(deleteBtn);
-    div.appendChild(buttonDiv);
-
-    bookContainer.appendChild(div);
-
-    toggleBtn.addEventListener('click', () => {
-        const buttonText = toggleBtn.textContent;
-        if (buttonText == 'Not read') {
-            toggleBtn.textContent = 'Read'
-            toggleBtn.style.backgroundColor = 'rgb(196, 243, 196)'
+        if (book.author) {
+            author.textContent = book.author;
         } else {
-            toggleBtn.textContent = 'Not read'
-            toggleBtn.style.backgroundColor = 'rgb(248, 178, 178)'
+            author.textContent = 'Unknown author'
         }
-    });
 
-    deleteBtn.addEventListener('click', () => {
-        bookContainer.removeChild(div);
-        const index = div.getAttribute('data-index');
-        myLibrary.splice(index, 1);
-    })
+        if (book.pages) {
+            pages.textContent = book.pages + ' pages';
+        } else {
+            pages.textContent = 'No pages?';
+        }
+
+        if (book.read) {
+            toggleBtn.textContent = 'Read';
+            toggleBtn.style.backgroundColor = 'rgb(196, 243, 196)';
+        } else {
+            toggleBtn.textContent = 'Not read';
+            toggleBtn.style.backgroundColor = 'rgb(248, 178, 178)';
+        }
+
+        div.appendChild(title);
+        div.appendChild(author);
+        div.appendChild(pages);
+        buttonDiv.appendChild(toggleBtn);
+        buttonDiv.appendChild(deleteBtn);
+        div.appendChild(buttonDiv);
+
+        bookContainer.appendChild(div);
+
+        toggleBtn.addEventListener('click', () => {
+            const buttonText = toggleBtn.textContent;
+            if (buttonText == 'Not read') {
+                toggleBtn.textContent = 'Read'
+                toggleBtn.style.backgroundColor = 'rgb(196, 243, 196)'
+            } else {
+                toggleBtn.textContent = 'Not read'
+                toggleBtn.style.backgroundColor = 'rgb(248, 178, 178)'
+            }
+        });
+
+        deleteBtn.addEventListener('click', () => {
+            bookContainer.removeChild(div);
+            const index = div.getAttribute('data-index');
+            myLibrary.splice(index, 1);
+        })
+    }
+
+    book.title = '';
+    book.author = '';
+    book.pages = '';
 };
 
