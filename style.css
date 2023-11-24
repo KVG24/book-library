@@ -159,12 +159,19 @@ input[type='checkbox'] {
     box-shadow: 10px 10px 10px gray;
 }
 
+.card > div {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .card button {
     height: 30px;
     width: 90px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 900;
     border-radius: 10px;
+    border: none;
 }
 
 .delete-book {
