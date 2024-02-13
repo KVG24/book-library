@@ -1,1 +1,2 @@
-# TOP lesson. Book Library
+# Book Library app
+The Odin Project Lesson
