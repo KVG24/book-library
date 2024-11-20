@@ -132,7 +132,3 @@ function addBookToPage(book) {
         myLibrary.splice(index, 1);
     });
 }
-
-book.title = "";
-book.author = "";
-book.pages = "";
